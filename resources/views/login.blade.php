@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container-login">
-	<h1 class="text-center">Hola, ¿qué quieres hacer?</h1>
+	<h1 class="text-center title aero-font">Hola, ¿qué quieres hacer?</h1>
 	<br>
 	<div class="row">
 		<div class="col-sm-6 bg-purple">

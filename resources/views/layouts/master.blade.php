@@ -52,50 +52,56 @@
     @yield('content')
 </body>
 <div class="modal" id="loginModal">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="opacity: 1; color: #fff; margin-right: 50px; margin-top: 50px; font-size: 3em;">
+          <span aria-hidden="true">&times;</span>
+  </button>
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
-      	<h2 class="text-center" style="color: #fff;">Hola, ¿Que quieres hacer?</h2>
+      	<h2 class="text-center aero-font" style="color: #fff;">Hola, ¿Que quieres hacer?</h2>
       	<br>
         <div class="row">
-        	<div class="col-sm-6" >
-        		<h2 class="text-center">Registrarme</h2>
-        		<br>
+        	<div class="col-sm-6 rbl">
+        		<h2 class="text-center aero-font">Registrarme</h2>
+                <hr style="border-color: #fff; margin-top: 0.6rem; margin-bottom: 1.4rem; border: 0;border-top: 3px solid #fff;width: 30%;">
     			<div class="form-group">
     				<label for="">Nombre</label>
-    				<input type="text" class="form-control">
+    				<input type="text" class="form-control no-corner-radius">
     			</div>
     			<div class="form-group">
     				<label for="">Correo</label>
-    				<input type="text" class="form-control">
+    				<input type="text" class="form-control no-corner-radius">
     			</div>
     			<div class="form-group" style="width:48%; float:left;">
     				<label for="">Contraseña</label>
-    				<input type="text" class="form-control">
+    				<input type="text" class="form-control no-corner-radius">
     			</div>
     			<div class="form-group" style="width:48%; float:right;">
     				<label for="">Confirmar Contraseña</label>
-    				<input type="text" class="form-control">
+    				<input type="text" class="form-control no-corner-radius">
     			</div>
     			<br>
     			<p class="text-center">
-    				<a href="" class="btn btn-app btn-white">Registrar</a>
+    				<a href="" class="btn btn-app btn-white rtr rbl double-padding">Registrar</a>
     			</p>
         	</div>
         	<div class="col-sm-6 white-box">
-        		<h2 class="text-center">Inicar Sesión</h2>
-        		<br>
+        		<h2 class="text-center aero-font">Inicar Sesión</h2>
+        		<hr style="border-color: #fff; margin-top: 0.6rem; margin-bottom: 1.4rem; border: 0;border-top: 3px solid #6409e3;width: 30%;">
     			<div class="form-group">
     				<label for="">Correo Electronico</label>
-    				<input type="text" style="border:2px solid #7600eb;"class="form-control">
+    				<input type="text" style="border:4px solid #7600eb;"class="form-control no-corner-radius">
     			</div>
     			<div class="form-group">
     				<label for="">Contraseña</label>
-    				<input type="text" style="border:2px solid #7600eb;"class="form-control">
+    				<input type="text" style="border:4px solid #7600eb;"class="form-control no-corner-radius">
     			</div>
-    			<br>
-    			<p class="text-center">
-    				<a href="" class="btn btn-app btn-purple">Entrar</a>
+                <br>
+                <p class="text-center">
+                    <a href="" class=""><img src="{{asset('images/google_btn.png')}}" style="height: 40px;" alt=""></a>
+                </p>
+    			<p class="text-center" style="margin-bottom: 22px;">
+    				<a href="" class="btn btn-app btn-purple rtr rbl double-padding">Entrar</a>
     			</p>
         	</div>
         </div>
