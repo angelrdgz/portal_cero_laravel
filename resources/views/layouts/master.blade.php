@@ -31,7 +31,7 @@
 		        		<li><a href="#"><img src="{{asset('images/icono_competencias.png') }}" alt=""> Competencias</a></li>
 		        		<li><a href="#"><img src="{{asset('images/icono_dudas.png') }}" alt=""> Dudas</a></li>
 		        		<li><a href="#"><img src="{{asset('images/icono_nbosotros.png') }}" alt=""> Nosotros</a></li>
-		        		<li><a href="#" class="close" data-toggle="collapse" data-target=".nav-collapse"><i class="material-icons">clear</i></a></li>
+		        		<li><a class="close close-menu" data-toggle="collapse" data-target=".nav-collapse"><i class="material-icons">clear</i></a></li>
 		        	</ul>
 		        </div>
 		        <div class="menu float-right">
@@ -111,4 +111,27 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function(){
+
+    $('.btn-navbar').click(function(){
+        $(this).hide();
+    })
+
+    $('.close-menu').click(function(){
+        $('.btn-navbar').show();
+    })
+
+    $(window).scroll(function() {
+        if ($(document).scrollTop() > 100) {
+            $('.navbar').addClass('navbar-black');
+        }
+        else {
+            $('.navbar').removeClass('navbar-black');
+        }
+    });
+
+  })
+    
+</script>
 </html>
