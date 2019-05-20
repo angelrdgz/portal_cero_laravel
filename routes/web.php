@@ -17,5 +17,9 @@ Route::get('/universes', 'WelcomeController@universes');
 Route::get('/designers', 'WelcomeController@designers');
 Route::get('/login', 'WelcomeController@login');
 Route::get('/details', 'WelcomeController@details');
+Route::get('/profile', 'WelcomeController@profile');
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('auth/register', 'AuthController@register');
+Route::post('auth/login', 'AuthController@login');
 

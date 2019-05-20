@@ -40,8 +40,16 @@
 		        		<li><a href="{{ url('universes') }}">Universos</a></li>
 		        		<li><a href="">Tienda</a></li>
 		        		<li><a href="">Contacto</a></li>
-		        		<li><a href="{{ url('profile') }}" class="no-padding"><img src="{{ asset('images/icono_miperfil_home.png') }}" alt=""></a></li>
-		        		<li><a class="no-padding" data-toggle="modal" data-target="#loginModal"><img src="{{ asset('images/icono_carrito_home.png') }}" alt=""></a></li>
+		        		<li>
+                            <a href="{{ url('profile') }}" class="no-padding">
+                                <img src="{{ asset('images/icono_miperfil_home.png') }}" alt="">
+                            </a>
+                        </li>
+		        		<li>
+                            <a class="no-padding" data-toggle="modal" data-target="#loginModal">
+                                <img src="{{ asset('images/icono_carrito_home.png') }}" alt="">
+                            </a>
+                        </li>
 		        	</ul>
 		        </div>
 			</div>
@@ -64,45 +72,51 @@
         	<div class="col-sm-6 rbl">
         		<h2 class="text-center aero-font">Registrarme</h2>
                 <hr style="border-color: #fff; margin-top: 0.6rem; margin-bottom: 1.4rem; border: 0;border-top: 3px solid #fff;width: 30%;">
+                <form method="POST" action="{{action('AuthController@register')}}">
+                @csrf            
     			<div class="form-group">
     				<label for="">Nombre</label>
-    				<input type="text" class="form-control no-corner-radius">
+    				<input type="text" name="name" class="form-control no-corner-radius">
     			</div>
     			<div class="form-group">
     				<label for="">Correo</label>
-    				<input type="text" class="form-control no-corner-radius">
+    				<input type="text" name="email" class="form-control no-corner-radius">
     			</div>
     			<div class="form-group" style="width:48%; float:left;">
     				<label for="">Contraseña</label>
-    				<input type="text" class="form-control no-corner-radius">
+    				<input type="password" name="password" class="form-control no-corner-radius">
     			</div>
     			<div class="form-group" style="width:48%; float:right;">
     				<label for="">Confirmar Contraseña</label>
-    				<input type="text" class="form-control no-corner-radius">
+    				<input type="password" name="confirm" class="form-control no-corner-radius">
     			</div>
     			<br>
     			<p class="text-center">
-    				<a href="" class="btn btn-app btn-white rtr rbl double-padding">Registrar</a>
+    				<button class="btn btn-app btn-white rtr rbl double-padding">Registrar</button>
     			</p>
+                </form>
         	</div>
         	<div class="col-sm-6 white-box">
         		<h2 class="text-center aero-font">Inicar Sesión</h2>
         		<hr style="border-color: #fff; margin-top: 0.6rem; margin-bottom: 1.4rem; border: 0;border-top: 3px solid #6409e3;width: 30%;">
+                <form method="POST" action="{{action('AuthController@login')}}">
+                @csrf  
     			<div class="form-group">
     				<label for="">Correo Electronico</label>
-    				<input type="text" style="border:4px solid #7600eb;"class="form-control no-corner-radius">
+    				<input type="email" name="email" style="border:4px solid #7600eb;"class="form-control no-corner-radius">
     			</div>
     			<div class="form-group">
     				<label for="">Contraseña</label>
-    				<input type="text" style="border:4px solid #7600eb;"class="form-control no-corner-radius">
+    				<input type="password" name="password" style="border:4px solid #7600eb;"class="form-control no-corner-radius">
     			</div>
                 <br>
                 <p class="text-center">
                     <a href="" class=""><img src="{{asset('images/google_btn.png')}}" style="height: 40px;" alt=""></a>
                 </p>
     			<p class="text-center" style="margin-bottom: 22px;">
-    				<a href="" class="btn btn-app btn-purple rtr rbl double-padding">Entrar</a>
+    				<button href="" class="btn btn-app btn-purple rtr rbl double-padding">Entrar</button>
     			</p>
+                </form>
         	</div>
         </div>
       </div>

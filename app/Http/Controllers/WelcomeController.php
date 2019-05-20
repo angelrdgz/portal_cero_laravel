@@ -25,4 +25,8 @@ class WelcomeController extends Controller
     public function details(){
     	return view('details');
     }
+
+    public function profile(){
+        return view('profile');
+    }
 }
