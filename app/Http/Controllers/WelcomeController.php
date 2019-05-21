@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use Cart;
 use App\Genere;
 use App\Interest;
 use App\User;
@@ -29,6 +30,11 @@ class WelcomeController extends Controller
 
     public function details(){
     	return view('details');
+    }
+
+    public function cart(){
+        $total = 0;
+        return view('cart', ['total'=>$total]);
     }
 
     public function profile(){

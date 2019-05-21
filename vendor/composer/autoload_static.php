@@ -84,6 +84,7 @@ class ComposerStaticInit087ccad99f5eb0861ffb9430cea00e2a
         'M' => 
         array (
             'Monolog\\' => 8,
+            'Melihovv\\ShoppingCart\\' => 22,
         ),
         'L' => 
         array (
@@ -98,6 +99,10 @@ class ComposerStaticInit087ccad99f5eb0861ffb9430cea00e2a
         'I' => 
         array (
             'Illuminate\\' => 11,
+        ),
+        'G' => 
+        array (
+            'Gloudemans\\Shoppingcart\\' => 24,
         ),
         'F' => 
         array (
@@ -261,6 +266,10 @@ class ComposerStaticInit087ccad99f5eb0861ffb9430cea00e2a
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'Melihovv\\ShoppingCart\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/melihovv/laravel-shopping-cart/src/ShoppingCart',
+        ),
         'League\\Flysystem\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/flysystem/src',
@@ -280,6 +289,10 @@ class ComposerStaticInit087ccad99f5eb0861ffb9430cea00e2a
         'Illuminate\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
+        ),
+        'Gloudemans\\Shoppingcart\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bumbummen99/shoppingcart/src',
         ),
         'Fideloper\\Proxy\\' => 
         array (
@@ -362,6 +375,8 @@ class ComposerStaticInit087ccad99f5eb0861ffb9430cea00e2a
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Genere' => __DIR__ . '/../..' . '/app/Genere.php',
+        'App\\Http\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/AuthController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
@@ -378,12 +393,14 @@ class ComposerStaticInit087ccad99f5eb0861ffb9430cea00e2a
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Interest' => __DIR__ . '/../..' . '/app/Interest.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'App\\UserInterest' => __DIR__ . '/../..' . '/app/UserInterest.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
         'BeyondCode\\DumpServer\\DumpServerServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
         'BeyondCode\\DumpServer\\Dumper' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/Dumper.php',
@@ -990,6 +1007,17 @@ class ComposerStaticInit087ccad99f5eb0861ffb9430cea00e2a
         'Faker\\ValidGenerator' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/ValidGenerator.php',
         'Fideloper\\Proxy\\TrustProxies' => __DIR__ . '/..' . '/fideloper/proxy/src/TrustProxies.php',
         'Fideloper\\Proxy\\TrustedProxyServiceProvider' => __DIR__ . '/..' . '/fideloper/proxy/src/TrustedProxyServiceProvider.php',
+        'Gloudemans\\Shoppingcart\\CanBeBought' => __DIR__ . '/..' . '/bumbummen99/shoppingcart/src/CanBeBought.php',
+        'Gloudemans\\Shoppingcart\\Cart' => __DIR__ . '/..' . '/bumbummen99/shoppingcart/src/Cart.php',
+        'Gloudemans\\Shoppingcart\\CartItem' => __DIR__ . '/..' . '/bumbummen99/shoppingcart/src/CartItem.php',
+        'Gloudemans\\Shoppingcart\\CartItemOptions' => __DIR__ . '/..' . '/bumbummen99/shoppingcart/src/CartItemOptions.php',
+        'Gloudemans\\Shoppingcart\\Contracts\\Buyable' => __DIR__ . '/..' . '/bumbummen99/shoppingcart/src/Contracts/Buyable.php',
+        'Gloudemans\\Shoppingcart\\Contracts\\InstanceIdentifier' => __DIR__ . '/..' . '/bumbummen99/shoppingcart/src/Contracts/InstanceIdentifier.php',
+        'Gloudemans\\Shoppingcart\\Exceptions\\CartAlreadyStoredException' => __DIR__ . '/..' . '/bumbummen99/shoppingcart/src/Exceptions/CartAlreadyStoredException.php',
+        'Gloudemans\\Shoppingcart\\Exceptions\\InvalidRowIDException' => __DIR__ . '/..' . '/bumbummen99/shoppingcart/src/Exceptions/InvalidRowIDException.php',
+        'Gloudemans\\Shoppingcart\\Exceptions\\UnknownModelException' => __DIR__ . '/..' . '/bumbummen99/shoppingcart/src/Exceptions/UnknownModelException.php',
+        'Gloudemans\\Shoppingcart\\Facades\\Cart' => __DIR__ . '/..' . '/bumbummen99/shoppingcart/src/Facades/Cart.php',
+        'Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider' => __DIR__ . '/..' . '/bumbummen99/shoppingcart/src/ShoppingcartServiceProvider.php',
         'Hamcrest\\Arrays\\IsArray' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArray.php',
         'Hamcrest\\Arrays\\IsArrayContaining' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContaining.php',
         'Hamcrest\\Arrays\\IsArrayContainingInAnyOrder' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContainingInAnyOrder.php',
@@ -1927,6 +1955,16 @@ class ComposerStaticInit087ccad99f5eb0861ffb9430cea00e2a
         'League\\Flysystem\\Util\\ContentListingFormatter' => __DIR__ . '/..' . '/league/flysystem/src/Util/ContentListingFormatter.php',
         'League\\Flysystem\\Util\\MimeType' => __DIR__ . '/..' . '/league/flysystem/src/Util/MimeType.php',
         'League\\Flysystem\\Util\\StreamHasher' => __DIR__ . '/..' . '/league/flysystem/src/Util/StreamHasher.php',
+        'Melihovv\\ShoppingCart\\CartItem' => __DIR__ . '/..' . '/melihovv/laravel-shopping-cart/src/ShoppingCart/CartItem.php',
+        'Melihovv\\ShoppingCart\\Coupons\\Coupon' => __DIR__ . '/..' . '/melihovv/laravel-shopping-cart/src/ShoppingCart/Coupons/Coupon.php',
+        'Melihovv\\ShoppingCart\\Coupons\\FixedDiscountCoupon' => __DIR__ . '/..' . '/melihovv/laravel-shopping-cart/src/ShoppingCart/Coupons/FixedDiscountCoupon.php',
+        'Melihovv\\ShoppingCart\\Coupons\\PercentDiscountCoupon' => __DIR__ . '/..' . '/melihovv/laravel-shopping-cart/src/ShoppingCart/Coupons/PercentDiscountCoupon.php',
+        'Melihovv\\ShoppingCart\\Facades\\ShoppingCart' => __DIR__ . '/..' . '/melihovv/laravel-shopping-cart/src/ShoppingCart/Facades/ShoppingCart.php',
+        'Melihovv\\ShoppingCart\\Repositories\\ShoppingCartDatabaseRepository' => __DIR__ . '/..' . '/melihovv/laravel-shopping-cart/src/ShoppingCart/Repositories/ShoppingCartDatabaseRepository.php',
+        'Melihovv\\ShoppingCart\\Repositories\\ShoppingCartRedisRepository' => __DIR__ . '/..' . '/melihovv/laravel-shopping-cart/src/ShoppingCart/Repositories/ShoppingCartRedisRepository.php',
+        'Melihovv\\ShoppingCart\\Repositories\\ShoppingCartRepositoryInterface' => __DIR__ . '/..' . '/melihovv/laravel-shopping-cart/src/ShoppingCart/Repositories/ShoppingCartRepositoryInterface.php',
+        'Melihovv\\ShoppingCart\\ServiceProvider' => __DIR__ . '/..' . '/melihovv/laravel-shopping-cart/src/ShoppingCart/ServiceProvider.php',
+        'Melihovv\\ShoppingCart\\ShoppingCart' => __DIR__ . '/..' . '/melihovv/laravel-shopping-cart/src/ShoppingCart/ShoppingCart.php',
         'Mockery' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'Mockery\\Adapter\\Phpunit\\Legacy\\TestListenerForV5' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/Legacy/TestListenerForV5.php',
         'Mockery\\Adapter\\Phpunit\\Legacy\\TestListenerForV6' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/Legacy/TestListenerForV6.php',

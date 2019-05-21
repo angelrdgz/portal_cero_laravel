@@ -18,6 +18,7 @@ Route::get('/designers', 'WelcomeController@designers');
 Route::get('/login', 'WelcomeController@login');
 Route::get('/details', 'WelcomeController@details');
 Route::get('/profile', 'WelcomeController@profile');
+Route::get('/cart', 'WelcomeController@cart');
 Route::post('update-profile', 'WelcomeController@updateProfile');
 Route::get('/home', 'HomeController@index')->name('home');
 
