@@ -40,21 +40,24 @@
 			<li><a href="">Me gustaría ser diseñador</a></li>
 			<li><a href="">Me gustaría ser aliado</a></li>
 		</ul>
-	</div>
+	</div> 
 	<div class="body">
+	<form method="POST" id="updateProfileForm" action="{{action('WelcomeController@updateProfile')}}">
+           @csrf		
+           <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
 		<div class="row">
 			<div class="col-sm-6">
 				<div class="form-group">
 					<label for="exampleInputEmail1">Nombre/Seudónimo</label>
-					<input type="text" class="form-control" id="exampleInputEmail1" >
+					<input type="text" name="name" class="form-control" value="{{Auth::user()->name}}" id="exampleInputEmail1" >
 				</div>
 				<div class="form-group">
 					<label for="exampleInputPassword1">Correo</label>
-					<input type="email" class="form-control">
+					<input type="email" name="email" value="{{Auth::user()->email}}" class="form-control">
 				</div>
 				<div class="form-group">
 					<label for="exampleInputPassword1">Contraseña actual</label>
-					<input type="text" class="form-control">
+					<input type="text" name="password" class="form-control">
 				</div>
 			</div>
 			<div class="col-sm-6">
@@ -62,18 +65,34 @@
 					<label for="exampleInputEmail1">Cumpleaños</label>
 					<br>
 					<div style="display: flex; justify-content: space-between;">
-						<select name="" style="width: 30.3%;" id="" class="form-control no-corner-radius"></select>
-						<select name="" style="width: 30.3%;" id="" class="form-control no-corner-radius"></select>
-						<select name="" style="width: 30.3%;" id="" class="form-control no-corner-radius"></select>
+						<select name="day" style="width: 30.3%;" id="" class="form-control no-corner-radius">
+							@for($i=1; $i < 31; $i++)
+							 <option value="{{$i < 10 ? '0'.$i:$i}}" {{$birthday[2] == $i ? 'selected':''}}>{{$i}}</option>
+							@endfor
+						</select>
+						<select name="month" style="width: 30.3%;" id="" class="form-control no-corner-radius">
+							@for($i=1; $i < count($months); $i++)
+							 <option value="{{$i < 10 ? '0'.$i:$i}}" {{$birthday[1] == $i ? 'selected':''}}>{{$months[$i]}}</option>
+							@endfor
+						</select>
+						<select name="year" style="width: 30.3%;" id="" class="form-control no-corner-radius">
+							@for($i=1980; $i < 2010; $i++)
+							 <option value="{{$i}}" {{$birthday[0] == $i ? 'selected':''}}>{{$i}}</option>
+							@endfor
+						</select>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="exampleInputPassword1">Sexo</label>
-					<input type="email" class="form-control">
+					<select name="genere" id="" class="form-control no-corner-radius">
+							@foreach($generes as $genere)
+							 <option value="{{$genere->id}}" {{Auth::user()->genere_id == $genere->id ? 'selected':''}}>{{$genere->name}}</option>
+							@endforeach
+						</select>
 				</div>
 				<div class="form-group">
 					<label for="exampleInputPassword1">Nueva contraseña</label>
-					<input type="text" class="form-control">
+					<input type="text" name="confirm_password" class="form-control">
 				</div>
 			</div>
 		</div>
@@ -81,142 +100,56 @@
 			<div class="col-sm-12">
 				<label for="">Estoy interesado en</label>
 			</div>
-			<div class="col-sm-3">
+			@for($i = 0; $i < count($interests); $i++)
+			 @if($i == 0)
+			  <div class="col-sm-3">
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="gridCheck1">
+					<input class="form-check-input" name="interests[]" {{in_array($interests[$i]->id, Auth::user()->interest_ids) == true ? 'checked':'' }} value="{{$interests[$i]->id}}" type="checkbox" id="gridCheck1">
 					<span class="form-check-label" for="gridCheck1">
-						Comics
+						{{$interests[$i]->name}}
 					</span>
 				</div>
+			 @elseif($i == 6)
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="gridCheck1">
+					<input class="form-check-input" name="interests[]" {{in_array($interests[$i]->id, Auth::user()->interest_ids) == true ? 'checked':'' }} value="{{$interests[$i]->id}}" type="checkbox" id="gridCheck1">
 					<span class="form-check-label" for="gridCheck1">
-						Ilustración
-					</span>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="gridCheck1">
-					<span class="form-check-label" for="gridCheck1">
-						Cuentos
-					</span>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="gridCheck1">
-					<span class="form-check-label" for="gridCheck1">
-						Novelas
-					</span>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="gridCheck1">
-					<span class="form-check-label" for="gridCheck1">
-						Videos / Animaciones
-					</span>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="gridCheck1">
-					<span class="form-check-label" for="gridCheck1">
-						Música
-					</span>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="gridCheck1">
-					<span class="form-check-label" for="gridCheck1">
-						Videojuegos
+						{{$interests[$i]->name}}
 					</span>
 				</div>
 			</div>
 			<div class="col-sm-3">
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="gridCheck1">
+			 @elseif($i == 13)
+			 <div class="form-check">
+					<input class="form-check-input" name="interests[]" {{in_array($interests[$i]->id, Auth::user()->interest_ids) == true ? 'checked':'' }} value="{{$interests[$i]->id}}" type="checkbox" id="gridCheck1">
 					<span class="form-check-label" for="gridCheck1">
-						Aventura
-					</span>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="gridCheck1">
-					<span class="form-check-label" for="gridCheck1">
-						Acción
-					</span>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="gridCheck1">
-					<span class="form-check-label" for="gridCheck1">
-						Comedia
-					</span>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="gridCheck1">
-					<span class="form-check-label" for="gridCheck1">
-						Drama
-					</span>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="gridCheck1">
-					<span class="form-check-label" for="gridCheck1">
-						Románticos
-					</span>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="gridCheck1">
-					<span class="form-check-label" for="gridCheck1">
-						Horror
-					</span>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="gridCheck1">
-					<span class="form-check-label" for="gridCheck1">
-						Suspenso
+						{{$interests[$i]->name}}
 					</span>
 				</div>
 			</div>
 			<div class="col-sm-3">
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="gridCheck1">
+			 @elseif($i == 20)
+			 <div class="form-check">
+					<input class="form-check-input" name="interests[]" {{in_array($interests[$i]->id, Auth::user()->interest_ids) == true ? 'checked':'' }} value="{{$interests[$i]->id}}" type="checkbox" id="gridCheck1">
 					<span class="form-check-label" for="gridCheck1">
-						Art toys
-					</span>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="gridCheck1">
-					<span class="form-check-label" for="gridCheck1">
-						Posters
-					</span>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="gridCheck1">
-					<span class="form-check-label" for="gridCheck1">
-						Ropa
-					</span>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="gridCheck1">
-					<span class="form-check-label" for="gridCheck1">
-						Accesorios
-					</span>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="gridCheck1">
-					<span class="form-check-label" for="gridCheck1">
-						Cosas para la escuela
-					</span>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="gridCheck1">
-					<span class="form-check-label" for="gridCheck1">
-						Cosas para mi cuarto
-					</span>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="gridCheck1">
-					<span class="form-check-label" for="gridCheck1">
-						Cosas para regalar
+						{{$interests[$i]->name}}
 					</span>
 				</div>
 			</div>
+			 @else
+			  <div class="form-check">
+					<input class="form-check-input" name="interests[]" {{in_array($interests[$i]->id, Auth::user()->interest_ids) == true ? 'checked':'' }} value="{{$interests[$i]->id}}" type="checkbox" id="gridCheck1">
+					<span class="form-check-label" for="gridCheck1">
+						{{$interests[$i]->name}}
+					</span>
+				</div>
+			 @endif
+			@endfor
 		</div>
+		</form>
 	</div>
 	<div class="append">
-		<a href="" class="btn btn-purple">Guardar cambios</a>
+		<button class="btn btn-purple" onClick="$('#updateProfileForm').submit()">Guardar cambios</button>
 	</div>
+
 </div>
 @stop
