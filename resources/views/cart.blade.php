@@ -77,7 +77,7 @@
 				<div class="col-sm-12" style="margin-top:20px;">
 					<div class="form-group">
 						<label for="">Correo</label>
-						<label for="" class="float-right">Bienvenido, <a href="#">{{Auth::user()->name}}</a></label>
+						<label for="" class="float-right">Bienvenido, <a href="#">@if(Auth::check()){{Auth::user()->name}} @else Invitado @endif</a></label>
 						<input type="email" class="form-control" value="">
 					</div>
 				</div>

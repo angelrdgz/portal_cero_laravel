@@ -25,7 +25,7 @@ class WelcomeController extends Controller
     }
 
     public function login(){
-    	return view('login');
+    	return redirect('/');
     }
 
     public function details(){
@@ -38,6 +38,9 @@ class WelcomeController extends Controller
     }
 
     public function profile(){
+        if(Auth::check()){
+          redirect('universes');
+        }
         $user = User::find(Auth::user()->id);
         $months = ['','Enero', 'Febrebro','Marzo', 'Abril','Mayo', 'Junio','Julio', 'Agosto','Septiembre', 'Octubre','Noviembre', 'Diciembre'];
         $birthday = explode('-', Auth::user()->birthday);
