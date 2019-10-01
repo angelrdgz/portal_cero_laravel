@@ -25,9 +25,9 @@
 			        		</a>
 		        		</li>
 		        		<li><a href="{{ url('cart') }}"><img src="{{ asset('images/icono_tienda.png') }}" alt=""> Carrito</a></li>
-		        		<li><a href="#"><img src="{{ asset('images/icono_creadores.png') }}" alt=""> Creadores</a></li>
+		        		<li><a href="{{ url('creators') }}"><img src="{{ asset('images/icono_creadores.png') }}" alt=""> Creadores</a></li>
 		        		<li><a href="{{ url('designers') }}"><img src="{{ asset('images/icono_disenadores.png') }}" alt=""> Diseñadores</a></li>
-		        		<li><a href="#"><img src="{{asset('images/icono_aliados.png') }}" alt=""> Aliados</a></li>
+		        		<li><a href="{{ url('allies') }}"><img src="{{asset('images/icono_aliados.png') }}" alt=""> Aliados</a></li>
 		        		<li><a href="#"><img src="{{asset('images/icono_competencias.png') }}" alt=""> Competencias</a></li>
 		        		<li><a href="#"><img src="{{asset('images/icono_dudas.png') }}" alt=""> Dudas</a></li>
 		        		<li><a href="#"><img src="{{asset('images/icono_nbosotros.png') }}" alt=""> Nosotros</a></li>
@@ -39,7 +39,7 @@
 		        		<li><a href="{{ url('/') }}" class="active">Inicio</a></li>
 		        		<li><a href="{{ url('universes') }}">Universos</a></li>
 		        		<li><a href="">Tienda</a></li>
-		        		<li><a href="">Contacto</a></li>
+		        		<li><a href="{{ url('contact') }}">Contacto</a></li>
 		        		<li>
                             <a href="{{ url('profile') }}" class="no-padding">
                                 <img src="{{ asset('images/icono_miperfil_home.png') }}" alt="">

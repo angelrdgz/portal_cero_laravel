@@ -16,8 +16,20 @@ class WelcomeController extends Controller
     	return view('portal');
     }
 
+    public function contact(){
+    	return view('contact');
+    }
+
     public function universes(){
     	return view('universes');
+    }
+
+    public function allies(){
+    	return view('allies');
+    }
+
+    public function creators(){
+    	return view('creators');
     }
 
     public function designers(){
